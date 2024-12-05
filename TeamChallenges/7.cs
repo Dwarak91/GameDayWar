@@ -16,7 +16,6 @@ namespace SecureLoginAPI
         private const string connectionString = "Server=myServer;Database=myDB;User Id=admin;Password=admin123;";
 
         // 1. Fix SQL Injection vulnerability using parameterized queries
-        // Fix SQL Injection vulnerability using parameterized queries
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginModel model)
         {
