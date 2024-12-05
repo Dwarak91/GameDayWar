@@ -16,6 +16,7 @@ namespace SecureLoginAPI
         private const string connectionString = "Server=myServer;Database=myDB;User Id=admin;Password=admin123;";
 
         // 1. Fix SQL Injection vulnerability using parameterized queries
+        // Fix SQL Injection vulnerability using parameterized queries
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginModel model)
         {
@@ -50,8 +51,6 @@ namespace SecureLoginAPI
             return BCrypt.Net.BCrypt.Verify(password, storedPasswordHash);
         }
 
-        // Other methods...
-
         public class LoginModel
         {
             [Required]
@@ -59,7 +58,6 @@ namespace SecureLoginAPI
             [Required]
             public string Password { get; set; }
         }
-
         // 2. Fix Insecure Password Storage by hashing passwords
         [HttpPost("storePassword")]
         public IActionResult StorePassword([FromBody] string password)
